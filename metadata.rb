@@ -1,8 +1,8 @@
 name 'nginx'
 license 'All Rights Reserved'
 description 'Installs/Configures a simple web site with nginx'
-# long_description 'Installs/Configures nginx'
-long_description IO.read('#{File.dirname(__FILE__)}/README.md')
+long_description 'Installs/Configures nginx'
+# long_description IO.read('#{File.dirname(__FILE__)}/README.md')
 version '0.1.0'
 
 
