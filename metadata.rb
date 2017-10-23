@@ -1,11 +1,10 @@
 name 'nginx'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
 license 'All Rights Reserved'
-description 'Installs/Configures nginx'
-long_description 'Installs/Configures nginx'
+description 'Installs/Configures a simple web site with nginx'
+# long_description 'Installs/Configures nginx'
+long_description IO.read('#{File.dirname(__FILE__)}/README.md')
 version '0.1.0'
-chef_version '>= 12.1' if respond_to?(:chef_version)
+
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
