@@ -20,5 +20,12 @@ end
 #   provider Chef::Provider::Service::Systemd
 #   retries 5
 #   retry_delay 10
-#   action [:enable, :start, :reload]
+#   action [:enable, :start]
 # end
+
+template '/usr/share/nginx/html/index.html' do
+  source 'index.html.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
