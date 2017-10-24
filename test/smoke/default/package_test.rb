@@ -6,6 +6,9 @@ describe package('nginx') do
   it { should be_installed }
 end
 
+describe command('chkconfig nginx') do
+  its('stdout') { should match('enable') }
+end
 
 # describe service('nginx') do
 #   # it { should be_installed }
