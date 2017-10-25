@@ -16,6 +16,12 @@ platforms:
   - name: centos-7
     driver:
       image: dokken/centos-7
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN yum -y install lsof which systemd-sysv initscripts net-tools
+      forward:
+        - 9080:80
+
 
 suites:
   - name: default
@@ -24,4 +30,4 @@ suites:
     verifier:
       inspec_tests:
         - test/smoke/default
-    attributes:  
+    attributes:
