@@ -16,7 +16,7 @@ before_script:
     - mv .kitchen.yml kitchen.yml.vagran
     - mv .kitchen.yml.back kitchen.yml
 
-script: /opt/chefdk/embedded/bin/kitchen verify
+script: /opt/chefdk/bin/kitchen verify
 
 matrix:
   include:
