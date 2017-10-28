@@ -8,7 +8,7 @@ Add 'nginx' to your node's run list.
 
 Requirement
 ============
-Supports onlyn CentOs or other RHEL variants for now.
+Supports only CentOs or other RHEL variants for now.
 
 Testing
 =========

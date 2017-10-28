@@ -1,10 +1,13 @@
 ---
 driver:
-  name: vagrant
+  name: dokken
   chef_version : latest
 
+transport:
+  name: dokken
+
 provisioner:
-  name: chef_zero
+  name: dokken
 
 verifier:
   name: inspec
@@ -13,6 +16,11 @@ platforms:
   - name: centos-7
     driver:
       image: centos:7
+      platform: rhel
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - ENV container docker
+        - RUN yum -y install lsof which systemd-sysv initscripts net-tools
       forward:
         - 9080:80
 
