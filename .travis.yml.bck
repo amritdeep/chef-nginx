@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - chef-stable-trusty
+    packages:
+      - chefdk
+
+service: docker
+
+before_script:
+    - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+    - /opt/chefdk/embedded/bin/chef --version
+    # - mv .kitchen.yml kitchen.yml.vagran
+    # - mv .kitchen.yml.back .kitchen.yml
+
+script: /opt/chefdk/bin/kitchen verify
+
+matrix:
+  include:
+    - before_script:
+      - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+      - /opt/chefdk/embedded/bin/chef --version
+      - /opt/chefdk/embedded/bin/cookstyle --version
+      - mv .kitchen.yml kitchen.yml.vagran
+      - mv .kitchen.yml.back .kitchen.yml
+
+    - script:
+      - /opt/chefdk/bin/chef exec cookstyle
