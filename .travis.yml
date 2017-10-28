@@ -13,6 +13,8 @@ service: docker
 before_script:
     - eval "$(/opt/chefdk/bin/chef shell-init bash)"
     - /opt/chefdk/embedded/bin/chef --version
+    - mv .kitchen.yml kitchen.yml.vagran
+    - mv .kitchen.yml.back kitchen.yml
 
 script: /opt/chefdk/embedded/bin/kitchen verify
 
